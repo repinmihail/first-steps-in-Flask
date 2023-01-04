@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -33,22 +33,14 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/create-field', methods=['POST', 'GET'])
+@app.route('/create-field')
 def create_field():
-    if request.method == 'POST':
-        title = request.form['title']
-        intro = request.form['intro']
-        text = request.form['text']
-        
-        field = Articles(title=title, intro=intro, text=text)
-        try:
-            db.session.add(field)
-            db.session.commit()
-            return redirect('/')
-        except:
-            "Упс... что-то пошло не так"
-    else:
-        return render_template('create-field.html')
+    return render_template('create-field.html')
+
+
+@app.route('/user/<string:name>/<int:id>')
+def user(name, id):
+    return f"User page: {name} with id {id}"
 
 
 if __name__ == '__main__':

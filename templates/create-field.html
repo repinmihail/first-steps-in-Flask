@@ -1,0 +1,19 @@
+{% extends "base-template.html" %}
+
+
+{% block title %}
+Страница про нас
+{% endblock %}
+
+
+{% block body %}
+<div class="container"> 
+    <h1>Code Style by Insights BDO</h1>
+    <form method="post">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Random field"><br>
+        <textarea name="intro" id="intro" class="form-control" placeholder="Кидай сюда свой код"></textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Random field"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Run CodeStyle"><br>
+    </form>
+</div>
+{% endblock %}
