@@ -50,6 +50,8 @@ def create_field():
     else:
         return render_template('create-field.html')
 
+def get_data_from_db():
+    return Articles.query.order_by(Articles.date.desc()).all()[1].title
 
 if __name__ == '__main__':
     app.run(debug=True)
